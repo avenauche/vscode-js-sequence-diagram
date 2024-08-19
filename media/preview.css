@@ -1,0 +1,60 @@
+.simple, .hand {
+    user-select: none;
+}
+
+.hand {
+    font-family: 'danielbd';
+    font-weight: bold;
+    font-style: normal;
+}
+
+.simple .signal text {
+    fill: var(--simple-color);
+}
+
+.hand .signal text {
+    fill: var(--hand-color);
+}
+
+.simple .signal line {
+    stroke: var(--simple-color);
+}
+
+.hand .signal path {
+    stroke: var(--hand-color);
+}
+
+.simple #markerArrowBlock {
+    stroke: var(--simple-color);
+    fill: var(--simple-color);
+}
+
+.simple #markerArrowOpen {
+    stroke: var(--simple-color);
+    fill: var(--simple-color);
+}
+
+.hand #markerArrowBlock {
+    stroke: var(--hand-color) !important;
+    fill: var(--hand-color) !important;
+}
+
+.hand #markerArrowOpen {
+    stroke: var(--hand-color);
+    fill: var(--hand-color);
+}
+
+.simple .actor rect{
+    fill: var(--simple-color);
+} 
+
+.hand .actor path {
+    fill: var(--hand-color);
+}
+
+.simple .actor + line {
+    stroke: var(--simple-color);
+}
+.hand .actor + path {
+    stroke: var(--hand-color);
+}

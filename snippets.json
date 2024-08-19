@@ -1,0 +1,48 @@
+{
+    "starter": {
+        "prefix": "start",
+        "body": [
+            "title: ${1:sample title}",
+            "participant ${2:AAA} as ${3:a}",
+            "participant ${4:BBB} as ${5:b}",
+            "$3->$5: hello",
+            "$5-->$3: hey"
+        ]
+    },
+    
+    "help": {
+        "prefix": "help",
+        "body": [
+            "title: ${1:sample title}",
+            "participant ${2:AAA} as ${3:a}",
+            "participant ${4:BBB} as ${5:b}",
+            "$3->$5: hello",
+            "$5-->$3: hey"
+        ]
+    },
+
+    "title": {
+        "prefix": "title",
+        "body": [
+            "title: $1"
+        ],
+        "description": "set a title to JS Sequence Diagram"
+    },
+
+    "participant": {
+        "prefix": "participant",
+        "body": [
+            "participant ${1|name,name as alias|}"
+        ],
+        "description": "set a participating actor name and an alias to it"
+    },
+
+    "Add a note": {
+        "prefix": "note",
+        "body": [
+            "note ${1|left,right|} of $2: $3"
+        ],
+        "description": "Add a note"
+    }
+
+}

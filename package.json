@@ -1,0 +1,136 @@
+{
+	"name": "js-sequence-diagrams",
+	"displayName": "js-sequence-diagrams",
+	"description": "Turns text into UML sequence diagrams",
+	"version": "0.0.1",
+	"author": {
+		"name": "Avenauche",
+		"email": "avenauchejeyasooriya@gmail.com"
+	},
+	"engines": {
+		"vscode": "^1.44.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:js-sequence-diagrams.preview",
+		"onCommand:js-sequence-diagrams.grammar"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"configuration": {
+			"title": "JS Sequence Diagrams",
+			"properties": {
+				"styleConfig.theme": {
+					"type": "string",
+					"default": "simple",
+					"description": "Set a theme for the js-sequence-diagram",
+					"enum": [
+						"simple",
+						"hand"
+					]
+				},
+				"styleConfig.background": {
+					"type": "string",
+					"format": "color-hex",
+					"default": "#1e1e1e",
+					"description": "Set a background color for the js-sequence-diagram"
+				},
+				"styleConfig.foreground": {
+					"type": "string",
+					"format": "color-hex",
+					"default": "#ff0088",
+					"description": "Set a foreground color for the js-sequence-diagram"
+				}
+			}
+		},
+		"keybindings": [
+			{
+				"command": "js-sequence-diagrams.preview",
+				"key": "ctrl+d ctrl+p",
+				"mac": "cmd+d cmd+p",
+				"when": "editorTextFocus && editorLangId == JS-Sequence-Diagram"
+			},
+			{
+				"command": "js-sequence-diagrams.grammar",
+				"key": "ctrl+d ctrl+g",
+				"mac": "cmd+d cmd+g",
+				"when": "editorFocus && editorLangId == JS-Sequence-Diagram"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "resourceLangId == JS-Sequence-Diagram",
+					"command": "js-sequence-diagrams.preview",
+					"group": "preview"
+				},
+				{
+					"when": "resourceLangId == JS-Sequence-Diagram",
+					"command": "js-sequence-diagrams.grammar",
+					"group": "grammar"
+				}
+			]
+		},
+		"languages": [
+			{
+				"id": "JS-Sequence-Diagram",
+				"extensions": [
+					".jsd"
+				],
+				"aliases": [
+					"JS Sequence Diagram",
+					"jsd"
+				],
+				"filenames": [],
+				"firstLine": "^#jsd",
+				"configuration": ""
+			}
+		],
+		"commands": [
+			{
+				"command": "js-sequence-diagrams.preview",
+				"title": "preview",
+				"category": "js-sequence-diagrams"
+			},
+			{
+				"command": "js-sequence-diagrams.grammar",
+				"title": "grammar",
+				"category": "js-sequence-diagrams"
+			}
+		],
+		"snippets": [
+			{
+				"language": "JS-Sequence-Diagram",
+				"path": "./snippets.json"
+			}
+		],
+		"views": {
+			"explorer": [
+				{
+					"id": "nodeDependencies",
+					"name": "Node Dependencies",
+					"when": "workspaceHasPackageJSON"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.44.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"eslint": "^6.8.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.2",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	},
+	"dependencies": {}
+}
